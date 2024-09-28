@@ -1,8 +1,8 @@
 import io, { Socket } from "socket.io-client";
 import { Route, UserLocation } from "./types";
-import { WebSocketActions } from "../../lib/constants";
+import { WEB_SOCKET_URL, WebSocketActions } from "../../lib/constants";
 
-const socket: Socket = io("ws://your-ec2-public-ip:8765", {
+const socket: Socket = io(WEB_SOCKET_URL, {
   transports: ["websocket", "polling"],
 });
 

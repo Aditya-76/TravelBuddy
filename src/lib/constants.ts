@@ -5,3 +5,5 @@ export enum WebSocketActions {
   ROUTE_UPDATED = "route_updated",
   LOCATION_UPDATED = "location_updated",
 }
+
+export const WEB_SOCKET_URL = "wss://echo.websocket.org/";
