@@ -6,4 +6,4 @@ export enum WebSocketActions {
   LOCATION_UPDATED = "location_updated",
 }
 
-export const WEB_SOCKET_URL = "wss://echo.websocket.org/";
+export const WEB_SOCKET_URL = "travel-buddy-backend-production.up.railway.app";

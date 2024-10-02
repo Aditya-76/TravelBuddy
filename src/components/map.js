@@ -1,16 +1,18 @@
 import { useEffect, useRef, useState } from "react";
-import { initMap } from "../services/googleMaps";
 import {
   onLocationUpdate,
   onRouteUpdate,
 } from "../services/websocket/websocket";
+import { initMap } from "../services/googleMaps/googleMaps";
 
 export default function Map() {
   const mapRef = useRef(null);
   const [map, setMap] = useState(null);
 
   useEffect(() => {
-    initMap(mapRef).then(setMap);
+    if (!mapRef.current) return;
+    const tempMap = initMap(mapRef);
+    setMap(tempMap);
   }, []);
 
   useEffect(() => {

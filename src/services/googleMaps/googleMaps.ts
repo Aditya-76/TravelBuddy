@@ -8,12 +8,20 @@ const loader = new Loader({
 export const initMap = async (
   mapRef: React.RefObject<HTMLDivElement>
 ): Promise<google.maps.Map> => {
-  // const google = await loader.load();
   const googleMaps = await loader.importLibrary("maps");
-  return new googleMaps.Map(mapRef.current!, {
-    center: { lat: 0, lng: 0 },
-    zoom: 8,
+  const googleMarker = await loader.importLibrary("marker");
+
+  const map = new googleMaps.Map(mapRef.current!, {
+    center: { lat: 12.9298683, lng: 77.673435 },
+    zoom: 14,
+    mapId: "8f6d5f0e7d2e7c8b",
   });
+  new googleMarker.AdvancedMarkerElement({
+    position: { lat: 12.9298683, lng: 77.673435 },
+    map,
+  });
+
+  return map;
 };
 
 declare global {
